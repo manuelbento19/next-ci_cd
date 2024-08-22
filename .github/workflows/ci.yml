@@ -1,0 +1,23 @@
+name: Linter and Tester
+
+on: 
+    push: 
+        branches:
+            - main
+
+jobs:
+    linter-and-tester:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+            
+            - name: Install packages
+              run: npm i
+
+            - name: Lint code
+              run: npm run lint
+
+            - name: Test code
+              run: npm test
